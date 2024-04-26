@@ -35,6 +35,7 @@ public class Yolov8sOnnxRuntimeDetect extends AbstractOnnxRuntimeTranslator {
     @Override
     protected float[][] runInference(Mat image) throws OrtException {
         Letterbox letterbox = new Letterbox();
+        letterbox.letterbox(image);
         int rows = letterbox.getHeight();
         int cols = letterbox.getWidth();
         int channels = image.channels();
