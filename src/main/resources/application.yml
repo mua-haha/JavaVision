@@ -32,7 +32,7 @@ ocr:
     # 上传文件访问路径
     accessPath: /file/**
     # 上传文件保存路径
-    uploadPath: /opt/ocr/
+    uploadPath: D:///opt///ocr/
 vision:
   # swagger配置
   openapi:

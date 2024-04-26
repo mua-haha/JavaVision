@@ -36,6 +36,11 @@ public abstract class AbstractDjlTranslator<T> {
             throw new RuntimeException(e);
         }
         String model_path = PathConstants.TEMP_DIR + PathConstants.ONNX + "/" + modelName;
+        String os = System.getProperty("os.name");
+        model_path = model_path.replace("\\", "/");
+        if (os.toLowerCase().contains("win")) {
+            model_path = "file:///".concat(model_path);
+        }
         Criteria<Image, T> criteria =
                 Criteria.builder()
                         .setTypes(Image.class, getClassOfT())
